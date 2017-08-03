@@ -1,0 +1,14 @@
+<p>This extension verifies if file uploads are vulnerable to directory traversal vulnerabilities. It further checks if files can be uploaded into an accessible directory of the application. All tests are run fully automated as part of Active Scan and there is no interaction required. This should help speed up testing for file upload vulnerabilities and be the basis for further testing such as uploading files that can be used to execute dynamic code.</p>
+
+<p><b>Module 1</b></p>
+
+<p>The module assumes that the upload path is somewhere inside application directory and attempts file uploads based on directory traversal. It queries the Burp sitemap for valid directories and then uploads files to them in order to find directories that are writeable and accessible.</p>
+
+<p><b>Module 2</b></p>
+
+<p>The module assumes that the upload path is somewhere outside of the application directory. In order to find accessible application directories it does basic fuzzing for the file upload to trigger error messages disclosing the absolute path. Additionally, it queries all findings from the passive scanning extension burp-suite-error-message-checks to find additional potentially valid paths of the file system that are writeable as well as accessible.</p>
+
+<p><b>Clean Up</b></p>
+
+<p>The extension is fairly aggressive in terms of trying to write files onto the system. If the scan has spammed files all over the file system or in certain directories, cleaning up should be straight forward as the extension only creates files with the name 0157e03014ebcaebb9abf549236dd81c0b0b878d.</p>
+

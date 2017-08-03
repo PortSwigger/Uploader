@@ -18,7 +18,7 @@ class BurpExtender
   def registerExtenderCallbacks(callbacks)
 
     # set our extension name
-    callbacks.setExtensionName("Uploader")
+    callbacks.setExtensionName("File Upload Traverser")
 
 
     #Register for Scanner Callbacks
@@ -100,7 +100,7 @@ class BurpExtender
             finding.httpMessages=baseRequestResponse
             finding.httpService=baseRequestResponse.getHttpService()
             finding.url= @helpers.analyzeRequest(baseRequestResponse).getUrl()
-            finding.name = "Upl04d3r - Uploaded file in webroot detected - Module 1a"
+            finding.name = "File Upload Traverser - Uploaded file in webroot detected - Module 1a"
             finding.detail = "The following files have been successfully uploaded to the server:<br/><br/> #{verified_urls.join("<br/>")}"
             finding.severity = "High"
             finding.confidence = "Certain"
@@ -138,7 +138,7 @@ class BurpExtender
             finding.httpMessages=baseRequestResponse
             finding.httpService=baseRequestResponse.getHttpService()
             finding.url= @helpers.analyzeRequest(baseRequestResponse).getUrl()
-            finding.name = "Upl04d3r - Abosulte Path Disclosure - Module 2a"
+            finding.name = "File Upload Traverser - Abosulte Path Disclosure - Module 2a"
             finding.detail = "The following absolute path disclosures have been discovered. The discovery of absolute path disclosures in error messages might include false positives:<br/><br/> #{path_disclosures_filtered.join("<br/>")}"
             finding.severity = "Low"
             finding.confidence = "Tentative"
@@ -180,7 +180,7 @@ class BurpExtender
             finding.httpMessages=baseRequestResponse
             finding.httpService=baseRequestResponse.getHttpService()
             finding.url= @helpers.analyzeRequest(baseRequestResponse).getUrl()
-            finding.name = "Upl04d3r - Uploaded file in webroot detected - Module 2b"
+            finding.name = "File Upload Traverser - Uploaded file in webroot detected - Module 2b"
             finding.detail = "The following files have been successfully uploaded to the server:<br/><br/> #{verified_urls.join("<br/>")}"
             finding.severity = "High"
             finding.confidence = "Certain"

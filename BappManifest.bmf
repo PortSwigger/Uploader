@@ -1,0 +1,12 @@
+Uuid: 5f46fe766e9c435992c610160bb53cba
+ExtensionType: 3
+Name: File Upload Traverser
+RepoName: file-upload-traverser
+ScreenVersion: 1.0
+SerialVersion: 0
+MinPlatformVersion: 0
+ProOnly: True
+Author: Gerhard Wagner
+ShortDescription: Checks whether file uploads are vulnerable to path traversal
+EntryPoint: uploader.rb
+BuildCommand: 
